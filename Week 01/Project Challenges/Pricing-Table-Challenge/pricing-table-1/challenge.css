@@ -1,0 +1,156 @@
+/* Challenge CSS */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f5f5f5;
+}
+
+.container {
+  /* Add your styles here */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 2% 0;
+}
+
+h1 {
+  /* Add your styles here */
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.pricing-heading {
+  /* Add your styles here */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 2%;
+
+}
+
+.pricing-container {
+  /* Add your styles here */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: rgb(84, 84, 84); */
+  width: 100vw;
+  height: 79vh;
+  padding: 0 10%;
+  gap: 3%;
+}
+
+.pricing-card {
+  /* Add your styles here */
+  border: 1px solid transparent;
+  border-radius: 10px;
+  width: 30%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1% 1%;
+  box-shadow: 0px 0px 10px 2px rgba(88, 88, 88, 0.511);
+}
+
+.pricing-card h2 {
+  font-size: large;
+  margin-top: 3%;
+}
+
+.pricing-card:hover {
+  /* Add your styles here */
+}
+
+.pricing-card.popular {
+  /* Add your styles here */
+  border: 3px solid orangered;
+  position: relative;
+  padding: 3% 1%;
+}
+
+.popular-badge {
+  /* Add your styles here */
+  position: absolute;
+  top: -3.8%;
+  border: none;
+  background-color: orangered;
+  color: white;
+  padding: 2% 1%;
+  border-radius: 25px;
+  font-size: x-small;
+}
+
+.price {
+  /* Add your styles here */
+  font-size: 35px;
+  font-weight: 700;
+  margin: 3% 0;
+}
+
+.period {
+  /* Add your styles here */
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(35, 34, 34, 0.625);
+  margin: 2% 0;
+}
+
+.features {
+  font-size: small;
+  /* Add your styles here */
+  list-style: none;
+  /* line-height: 0%; */
+  margin: 5% 0;
+  /* text-align: center; */
+}
+
+.features li {
+  /* Add your styles here */
+  margin: 3% 0;
+}
+
+.features li img {
+  /* padding-right: 20px; */
+  margin-right: 10px;
+  /* margin-bottom: 50px; */
+}
+
+ul {
+  list-style-type: none;
+  /* Removes the default bullet */
+  padding-left: 0;
+  /* Space for the custom bullet */
+}
+
+li {
+  background: url("assets/chaicodelogo.png") no-repeat left center;
+  /* Use image as bullet */
+  background-size: 20px 20px;
+  /* Set the dimensions of the image */
+  padding-left: 38px;
+  /* Add space between bullet and text */
+}
+
+
+.subscribe-btn {
+  /* Add your styles here */
+  background-color: rgb(255, 101, 35);
+  border: none;
+  /* border: 1px solid black; */
+  padding: 3% 5%;
+  vertical-align: middle;
+  border-radius: 25px;
+}
+
+.subscribe-btn:hover {
+  /* Add your styles here */
+}
