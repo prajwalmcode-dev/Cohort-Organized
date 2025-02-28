@@ -14,11 +14,10 @@
             <input id="todo-input" placeholder="Enter your to do" />
             <button id="add-btn">Add</button>
             <ul id="todo-list">
-                <li>Go to Gym <button>X</button></li>
-                <li>Study JS</li>
-                <li>Build Projects</li>
             </ul>
         </div>
+    </div>
+    <div id="delete-sec">
     </div>
     <script>
         const addBtn = document.getElementById('add-btn')
@@ -34,6 +33,11 @@
 
             console.log('User entered', value)
             li.innerText = value
+
+            if (!value) {
+                throw new TypeError('Please enter a value')
+            }
+
             // ul.innerText = li.innerText
             ToDoList.appendChild(li)
             console.log(li)
@@ -46,6 +50,19 @@
 
             todoInput.value = ''
         })
+
+        const delBtn = document.createElement('button')
+        const delsec = document.getElementById('delete-sec')
+
+        delBtn.innerText = ' Delete All '
+        delsec.appendChild(delBtn)
+
+        delBtn.addEventListener('click', () => {
+            ToDoList.innerText = ''
+            //console.log(ToDoList.innerText)
+            //console.log(ToDoList)
+        })
+
     </script>
 </body>
 
