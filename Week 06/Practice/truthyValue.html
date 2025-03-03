@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Truthy Values</h1>
+</body>
+
+<script>
+    function checkTru(value) {
+        if (value) {
+            console.log("Truthy")
+        }
+        else {
+            console.log("Falsy")
+        }
+    }
+
+    checkTru(1) //truthy
+    checkTru(0) //falsy
+    checkTru("hitesh") //truthy
+    checkTru("") //falsy
+    checkTru([]) //truthy
+    checkTru([1, 2, 3]) //truthy
+    checkTru({})
+</script>
+
+</html>
