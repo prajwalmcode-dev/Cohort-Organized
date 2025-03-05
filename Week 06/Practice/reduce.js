@@ -1,4 +1,4 @@
-//Find most user activity
+//USE CASE 1: Find most user activity
 
 let userActivity = [
     { user: "Alice", activityCount: 45 },
@@ -29,8 +29,11 @@ let res = userActivity.reduce((acc, curr) => {
 console.log(res)
 
 /*
-ALTERNATE WAY (BETTER WAY)
+ALTERNATE WAY for USE CASE 1: (BETTER WAY)
 
 let mostActiveUser = userActivity.reduce((maxUser, user) => user.activityCount > maxUser.activityCount ? user : maxUser);
 console.log(mostActiveUser);
 */
+
+
+
