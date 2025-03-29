@@ -1,0 +1,159 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Library</title>
+</head>
+
+<body>
+
+    <button id="listbutton">List</button>
+    <button id="gridbutton">Grid</button>
+
+    <div id="items"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List and Grid Toggle</title>
+    <style>
+        .list-view {
+            display: block;
+        }
+
+        .grid-view {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        #container li {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        #container ul {
+            text-align: center;
+            background-color: rgb(194, 255, 177);
+            padding: 20px;
+        }
+
+        #container ul img {
+            padding-top: 20px;
+        }
+
+        #container li {
+            background-color: rgb(139, 249, 137);
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="listButton">Show List</button>
+    <button id="gridButton">Show Grid</button>
+    <div id="container">
+        <!-- <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+        <div class="item">Item 4</div>
+        <div class="item">Item 5</div>
+        <div class="item">Item 6</div> -->
+        <!-- <img src="http://books.google.com/books/content?id=KA9QDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+            alt=""> -->
+    </div>
+
+    <div id="items"></div>
+
+    <script>
+        // Get references to the buttons and container
+        const listButton = document.getElementById('listButton');
+        const gridButton = document.getElementById('gridButton');
+        const container = document.getElementById('container');
+        // const li = document.getElementById('li');
+
+        // let items = document.getElementById('items')
+        fetch('https://api.freeapi.app/api/v1/public/books')
+            .then((response) => {
+                response.json()
+                    .then((obj) => {
+                        const products = obj.data.data
+                        console.log(products)
+                        products.forEach((product) => {
+                            const ul = document.createElement('ul')
+                            const li = document.createElement('li')
+                            const li2 = document.createElement('li')
+                            const li3 = document.createElement('li')
+                            const li4 = document.createElement('li')
+                            // const li5 = document.createElement('li')
+                            const image = document.createElement('img')
+                            li.innerText = product.volumeInfo.title + "  ..by..  " + product.volumeInfo.authors
+                            li2.innerText = "Subtitle:  " + product.volumeInfo.subtitle
+                            li3.innerText = "Publisher:  " + product.volumeInfo.publisher
+                            li4.innerText = "Published Date:  " + product.volumeInfo.publishedDate
+                            // li5.innerText = "Thumbnail:  " + image.
+                            li.style.listStyle = 'none'
+                            li2.style.listStyle = 'none'
+                            li3.style.listStyle = 'none'
+                            li4.style.listStyle = 'none'
+
+                            const imgsrc = product.volumeInfo.imageLinks.thumbnail
+                            image.src = imgsrc
+                            image.alt = "Error Loading Image"
+
+                            // li5.style.listStyle = 'none'
+
+                            ul.appendChild(li)
+                            ul.appendChild(li2)
+                            ul.appendChild(li3)
+                            ul.appendChild(li4)
+                            ul.appendChild(image)
+                            container.appendChild(ul)
+                        })
+                    })
+                    .catch((err) => console.log('Error converting JSON', err))
+            })
+
+
+
+        // Add event listeners to buttons
+        listButton.addEventListener('click', () => {
+            container.classList.remove('grid-view');
+            container.classList.add('list-view');
+        });
+
+        gridButton.addEventListener('click', () => {
+            container.classList.remove('list-view');
+            // li.style.width = '200px'
+            container.classList.add('grid-view');
+        });
+
+        // Initial setup - default to list view
+        container.classList.add('list-view');
+    </script>
+
+</body>
+
+</html>
